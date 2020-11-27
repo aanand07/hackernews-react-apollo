@@ -1,7 +1,7 @@
 scalar DateTime
 
 type Query {
-  info: String!
+  # info: String!
   feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): Feed!
 }
 
