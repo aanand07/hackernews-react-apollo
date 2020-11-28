@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { withRouter, Router } from 'react-router'
+import { withRouter } from 'react-router'
 import { AUTH_TOKEN } from '../constants'
 
 class Header extends Component {
@@ -9,15 +9,21 @@ class Header extends Component {
         return (
           <div className="flex pa1 justify-between nowrap orange">
             <div className="flex flex-fixed black">
-              <div className="fw7 mr1">Hacker News</div>
-              <Link to="/" className="ml1 no-underline black">
+              <div className="fw7 mr1">
+                  <Link to="/" className="ml1 no-underline black">Hacker News</Link>
+              </div>
+              {/* <Link to="/" className="ml1 no-underline black">
                 new
+              </Link> */}
+              <div className="ml1">|</div>
+              <Link to="/search" className="ml1 no-underline black">
+                Search
               </Link>
               {authToken && (
                 <div className="flex">
                   <div className="ml1">|</div>
                   <Link to="/create" className="ml1 no-underline black">
-                    submit
+                    Create Link
                   </Link>
                 </div>
               )}
@@ -35,7 +41,7 @@ class Header extends Component {
                 </div>
               ) : (
                 <Link to="/login" className="ml1 no-underline black">
-                  login
+                  Login to create link or upvote
                 </Link>
               )}
             </div>

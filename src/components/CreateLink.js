@@ -21,7 +21,7 @@ class CreateLink extends Component {
     render() {
         const { description, url } = this.state
         return (
-            <div>
+            <form onSubmit={e=>e.preventDefault()}>
                 <div className="flex flex-column mt3">
                     <input
                         className="mb2"
@@ -39,9 +39,9 @@ class CreateLink extends Component {
                     />
                 </div>
                 <Mutation mutation={POST_MUTATION} variables={{ description, url }} onCompleted={() => this.props.history.push('/')}>
-                    {postMutation => <button onClick={postMutation}>Submit</button>}
+                    {postMutation => <button type="submit" onClick={postMutation}>Submit</button>}
                 </Mutation>
-            </div>
+            </form>
         )
     }
 }
